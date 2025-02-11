@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Epic Bloxy Team</title>
+    <link rel="icon" type="image/x-icon" href="/yippers/yippe.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="yippers/yippe.png" alt="Logo">
+        </div>
+        <nav class="top-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="progress.html">Progress</a></li>
+                <li><a href="profiles.html">Profiles</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="title">The Epic Bloxy Team</h1>
+        <h2>Welcome to the official website of the Discord group, TEBT.</h2>
+        <h4>We have 6 official members in our group, listed right below</h2>
+        <h3>Our members:</h3>
+        <a href="https://www.youtube.com/@Mrbloxybob" class="no-decoration">
+            <h2><img src="yippers/bobby.png" alt="Icon" class="header-icon"> @Bloxy_Bobby</h2>
+        </a>
+        <a href="https://www.youtube.com/@Hust3059" class="no-decoration">
+            <h2><img src="yippers/hust.png" alt="Icon" class="header-icon"> @Hust</h2>
+        </a>
+        <a href="yippers/heduna_profile.png" class="no-decoration">
+            <h2><img src="yippers/heduna.png" alt="Icon" class="header-icon"> @Heduna</h2>
+        </a>
+        <a href="https://www.youtube.com/@pondelilol" class="no-decoration">
+            <h2><img src="yippers/matt.png" alt="Icon" class="header-icon"> @matt</h2>
+        </a>
+        <a href="https://www.youtube.com/@rad1cool" class="no-decoration">
+            <h2><img src="yippers/lxzy.png" alt="Icon" class="header-icon"> @lxzy</h2>
+        </a>        
+        <a href="https://www.youtube.com/channel/UCxTdZAy5gqczUrCqratZjvw" class="no-decoration">
+            <h2><img src="yippers/rocker.png" alt="Icon" class="header-icon"> @RockerTM</h2>
+        </a>
+    </main>
+</body>
+</html>
+
+<script>
+    function createFallingLogo() {
+        const logo = document.createElement("img");
+        logo.src = "yippers/yippe.png";
+        logo.classList.add("falling-logo");
+        document.body.appendChild(logo);
+
+        const size = Math.random() * 20 + 70; // Random size (60px - 100px)
+        const startX = Math.random() * window.innerWidth; // Random horizontal position
+        const speed = Math.random() * 9 + 1; // Random speed (1 - 3 pixels per frame)
+
+        logo.style.width = `${size}px`;
+        logo.style.left = `${startX}px`;
+
+        let pos = -100;
+        let opacity = 1;
+
+        function fall() {
+            if (pos < window.innerHeight) {
+                pos += speed; // Move down
+                opacity = 1 - (pos / window.innerHeight); // Gradually fade out
+                logo.style.transform = `translateY(${pos}px) rotate(${pos}deg)`;
+                logo.style.opacity = opacity;
+                requestAnimationFrame(fall);
+            } else {
+                logo.remove();
+            }
+        }
+
+        fall();
+    }
+
+    // Spawn new logos every 150ms for constant effect
+    setInterval(createFallingLogo, 150);
+</script>
